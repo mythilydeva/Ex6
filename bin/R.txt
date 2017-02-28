@@ -469,7 +469,6 @@ int id activity_chooser_view_content 0x7f090024
 int id alertTitle 0x7f090030
 int id always 0x7f090019
 int id beginning 0x7f09001e
-int id button1 0x7f090051
 int id buttonPanel 0x7f09002b
 int id cancel_action 0x7f090053
 int id checkbox 0x7f090039
@@ -535,6 +534,7 @@ int id status_bar_latest_event_content 0x7f090054
 int id submit_area 0x7f09004c
 int id tabMode 0x7f09000c
 int id text 0x7f09005c
+int id text1 0x7f090051
 int id text2 0x7f09005a
 int id textSpacerNoButtons 0x7f090034
 int id time 0x7f090058

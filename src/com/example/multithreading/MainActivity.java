@@ -9,39 +9,42 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-	private ProgressBar bar;
-
-	/** Called when the activity is first created. */
+	TextView text;
+	int n=50;
+	char c='a';
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		bar = (ProgressBar) findViewById(R.id.progressBar1);
-
+		text=(Button) findViewById(R.id.text1);
+		Handler hand=new Handler();
 	}
 
-	public void startProgress(View view) {
-
-		bar.setProgress(0);
-		new Thread(new Task()).start();
-	}
-
-	class Task implements Runnable {
+	Runnable r1=new Runnable() {
+		
 		@Override
 		public void run() {
-			for (int i = 0; i <= 10; i++) {
-				final int value = i;
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				bar.setProgress(value);
-
-			}
+			String txt=text.getText().toString();
+			
 		}
-
+	};
+	class Prime extends Thread
+	{
+		public void run()
+		{
+			try
+			{
+				for(int i=1;i<=10;i++)
+				{
+					if(i==2||i==3||i==5||i==7)
+					{
+						System.out.println ("Prime No.= "+i);
+					}
+					Thread.sleep(500);
+				}
+			}
+			catch (Exception e){}
+		}
 	}
-
-}
+	}
