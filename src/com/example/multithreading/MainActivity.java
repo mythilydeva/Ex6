@@ -1,50 +1,36 @@
 package com.example.multithreading;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
-public class MainActivity extends Activity {
-	TextView text;
-	int n=50;
-	char c='a';
-
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
+import android.app.Activity; 
+import android.os.Bundle; 
+import android.os.Handler; 
+import android.widget.Button; 
+import android.widget.TextView; 
+public class MainActivity extends Activity { 
+	Handler hand = new Handler(); 
+	Button clickme; 
+	TextView timer; 
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		text=(Button) findViewById(R.id.text1);
-		Handler hand=new Handler();
-	}
-
-	Runnable r1=new Runnable() {
-		
-		@Override
-		public void run() {
-			String txt=text.getText().toString();
-			
-		}
-	};
-	class Prime extends Thread
-	{
-		public void run()
-		{
-			try
+		timer = (TextView) findViewById(R.id.textval); 
+		clickme = (Button) findViewById(R.id.clickme); 
+		hand.postDelayed(run, 1000); 
+		} 
+	Runnable run = new Runnable() { 
+		@Override public void run() 
+		{ 
+			updateTime(); 
+		} 
+		}; 
+		public void updateTime() { 
+			timer.setText("" + (Integer.parseInt(timer.getText().toString()) - 1));
+			if (Integer.parseInt(timer.getText().toString()) == 0) { clickme.setVisibility(0); 
+			} 
+			else 
 			{
-				for(int i=1;i<=10;i++)
-				{
-					if(i==2||i==3||i==5||i==7)
-					{
-						System.out.println ("Prime No.= "+i);
-					}
-					Thread.sleep(500);
-				}
-			}
-			catch (Exception e){}
-		}
-	}
-	}
+				hand.postDelayed(run, 1000); 
+				} 
+			} 
+		} 
+

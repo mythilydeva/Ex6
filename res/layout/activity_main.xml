@@ -1,23 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
-    <ProgressBar
-        android:id="@+id/progressBar1"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textval"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:indeterminate="false"
-        android:max="10"
-        android:padding="4dip" >
-    </ProgressBar>
+        android:text="Button will appear after 10 seconds" />
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp" />
+
+    <Button
+        android:id="@+id/clickme"
+        android:layout_marginTop="100dp"
+        android:text="Click_me" />
 
     <TextView
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textval"
+        android:layout_alignTop="@+id/timer"
+        android:layout_marginRight="51dp"
+        android:layout_marginTop="40dp"
         android:text="TextView" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/b1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/text1"
+        android:layout_below="@+id/text1"
+        android:layout_marginTop="77dp"
+        android:text="Click_Me" />
+
+</RelativeLayout>
